@@ -1,0 +1,185 @@
+{
+    "shared-responsibility": {
+      "uuid": "5e139edd-86aa-4b65-8431-1192bd276658",
+      "metadata": {
+        "title": "Shared Responsibilty Model for Example PaaS",
+        "published": "2023-05-19T14:46:54-04:00",
+        "last-modified": "2024-03-01T13:57:28.355446-04:00",
+        "version": "1.1",
+        "oscal-version": "1.2.0",
+        "roles": [
+          {
+            "id": "admin",
+            "title": "Administrator"
+          },
+          {
+            "id": "customer",
+            "title": "External Customer"
+          },
+          {
+            "id": "poc-for-customers",
+            "title": "Internal POC for Customers"
+          }
+        ],
+        "parties": [
+          {
+            "uuid": "22222222-0000-4000-9000-100000000001",
+            "type": "person",
+            "remarks": "Leveraged Authorization POC"
+          },
+          {
+            "uuid": "22222222-b4ff-4030-b178-e953c2e55d64",
+            "type": "organization",
+            "name": "ExampleSaaSSolutions Inc.",
+            "links": [
+              {
+                "href": "https://www.examplesaassolutions.com",
+                "rel": "website"
+              }
+            ]
+          },
+          {
+            "uuid": "22222222-0000-4000-9000-100000000002",
+            "type": "person",
+            "name": "Jane Doe"
+          }
+        ],
+        "responsible-parties": [
+          {
+            "role-id": "admin",
+            "party-uuids": [
+              "22222222-0000-4000-9000-100000000002"
+            ]
+          },
+          {
+            "role-id": "customer",
+            "party-uuids": [
+              "22222222-b4ff-4030-b178-e953c2e55d64"
+            ]
+          },
+          {
+            "role-id": "poc-for-customers",
+            "party-uuids": [
+              "22222222-0000-4000-9000-100000000001"
+            ]
+          }
+        ]
+      },
+      "source-ssp": {
+        "ssp-uuid": "d197545f-353f-407b-9166-ebf959774c5a",
+        "title": "Provider PaaS System Security Plan",
+        "published": "2023-05-19T14:46:54-04:00",
+        "last-modified": "2024-03-01T13:57:28.355446-04:00",
+        "links": [
+          {
+            "href": "#22222222-ace3-4aae-9acd-d52d418472f2"
+          }
+        ],
+        "party-uuid": "22222222-0000-4000-9000-100000000001",
+        "date-authorized": "2024-04-16",
+        "referenced-profile":  {
+            "href": "#22222222-b238-4752-ba12-cfd6ef2a83df"
+        }
+      },
+      "control-implementation": {
+        "description": "Example control implementation for PaaS using ac-6.9 and au-11.",
+          "implemented-requirements": [
+            {
+              "uuid": "22222222-40e8-49f9-9c67-0a6aba700179",
+              "control-id": "ac-6.9",
+              "by-components": [
+                {
+                  "component-uuid": "22222222-395a-4ea9-a8dd-dc678515ae7b",
+                  "uuid": "22222222-2905-4bf8-9f4c-ccfc74ed924a",
+                  "description": "The PaaS systems audits the execution of privileged functions with the platform.",
+                  "implementation-status": {
+                    "state": "implemented"
+                  },
+                  "responsibilities": [
+                    {
+                      "uuid": "22222222-f02c-4bb2-a64b-84d8585af4ce",
+                      "description": "The customer is responsible for auditing the execution of privileged functions for their application.",
+                      "exportable": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "uuid": "22222222-8766-4277-b472-01642fcc0750",
+              "control-id": "au-11",
+              "by-components": [
+                {
+                  "component-uuid": "22222222-0000-4000-9001-000000000001",
+                  "uuid": "22222222-edb6-445e-99b9-3db473022066",
+                  "description": "This is how the component addresses au-11.",
+                  "provided": [
+                      {
+                          "uuid": "22222222-55d5-444a-9c28-ed523115db8e",
+                          "description": "The PaaS audit logs are generated and copied to a centralized location.",
+                          "exportable": true
+                      }
+                  ],
+                  "responsibilities": [
+                      {
+                        "uuid": "22222222-55d5-444a-9c28-ed523115db8a",
+                        "description": "The customer must retain audit logs for their own application.",
+                        "provided-uuid": "22222222-55d5-444a-9c28-ed523115db8e",
+                        "exportable": true
+                      } 
+                  ],
+                  "inherited": [
+                    {
+                      "uuid": "22222222-9f2b-4d75-83cd-eb2b3a8bc06e",
+                      "provided-uuid": "11111111-e5ef-46b6-95a2-4d8e7f864c1a",
+                      "description": "CSP provides service for retaining audit logs.",
+                      "exportable": true
+                    }
+                  ],
+                  "satisfied": [
+                    {
+                      "uuid": "22222222-8213-4823-9112-ef00d7ec503a",
+                      "responsibility-uuid": "11111111-b4ff-4030-b178-e953c2e55d64",
+                      "description": "The PaaS configures the CSP service for retaining audit logs.",
+                      "exportable": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+      },
+      "back-matter": {
+        "resources": [
+          {
+            "uuid": "22222222-b238-4752-ba12-cfd6ef2a83df",
+            "description": "NIST Special Publication 800-53 Revision 5: High Baseline Profile",
+            "rlinks": [
+              {
+                "href": "../../../nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_HIGH-baseline_profile.xml",
+                "media-type": "application/oscal.catalog+xml"
+              },
+              {
+                "href": "../../../nist.gov/SP800-53/rev4/json/NIST_SP-800-53_rev4_HIGH-baseline_profile.json",
+                "media-type": "application/oscal.catalog+json"
+              },
+              {
+                "href": "../../../nist.gov/SP800-53/rev4/yaml/NIST_SP-800-53_rev4_HIGH-baseline_profile.yaml",
+                "media-type": "application/oscal.catalog+yaml"
+              }
+            ]
+          },
+          {
+            "uuid": "22222222-ace3-4aae-9acd-d52d418472f2",
+            "description": "Leveraged System Security Plan in JSON",
+            "rlinks": [
+              {
+                "href": "./leveraged-example-srm-ssp.json",
+                "media-type": "application/oscal.catalog+json"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }

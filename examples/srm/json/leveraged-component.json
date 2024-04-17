@@ -1,0 +1,55 @@
+{
+    "component-definition": {
+      "uuid": "22222222-e123-4c9e-8d17-267a831d4471",
+      "metadata": {
+        "title": "Example Leveraged Component Definition",
+        "last-modified": "2023-05-08T21:56:09.855332+00:00",
+        "version": "1.0",
+        "oscal-version": "1.2.0",
+        "roles": [
+            {
+              "id": "provider",
+              "title": "Provider"
+            },
+            {
+              "id": "customer",
+              "title": "External Customer"
+            }
+          ]
+      },
+      "components": [
+        {
+          "uuid": "22222222-395a-4ea9-a8dd-dc678515ae7b",
+          "type": "sofware",
+          "title": "Example Operating System",
+          "description": "An example operating system.",
+          "control-implementations": [
+            {
+              "uuid": "22222222-f02c-4bb2-a64b-0f90f73910a5",
+              "source": "../../../nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_HIGH-baseline_profile.json",
+              "description": "An example control implementation with defined responsibilities.",
+              "implemented-requirements": [
+                {
+                  "uuid": "22222222-9172-450d-9525-351195bc5879",
+                  "control-id": "ac-6.9",
+                  "description": "The component audits the execution of privileged functions.",
+                  "responsibilities": [
+                    {
+                        "uuid": "22222222-f02c-4bb2-a64b-84d8585af4ce",
+                        "description": "The customer is responsible for auditing the execution of privileged functions for their application.",
+                        "exportable": true,
+                        "responsible-roles": [
+                            {
+                                "role-id": "customer"
+                            }
+                        ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
