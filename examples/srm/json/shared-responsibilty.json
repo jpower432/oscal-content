@@ -79,7 +79,27 @@
         "date-authorized": "2024-04-16",
         "referenced-profile":  {
             "href": "#22222222-b238-4752-ba12-cfd6ef2a83df"
-        }
+        },
+        "components": [
+          {
+            "uuid": "22222222-0000-4000-9001-000000000001",
+            "type": "this-system",
+            "title": "This System",
+            "description": "This Leveraging PaaS.\nThe entire system as depicted in the system authorization boundary",
+            "status": {
+              "state": "operational"
+            }
+          },
+          {
+            "uuid": "22222222-395a-4ea9-a8dd-dc678515ae7b",
+            "type": "software",
+            "title": "Example Operating System",
+            "description": "An example operating system.",
+            "status": {
+              "state": "operational"
+            }
+          }
+        ]
       },
       "control-implementation": {
         "description": "Example control implementation for PaaS using ac-6.9 and au-11.",
