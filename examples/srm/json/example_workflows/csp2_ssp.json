@@ -1,0 +1,278 @@
+{
+    "system-security-plan": {
+      "uuid": "d197545f-353f-407b-9166-ebf959774c5a",
+      "metadata": {
+        "title": "CSP PaaS System Security Plan",
+        "last-modified": "2024-02-01T13:57:28.355446-04:00",
+        "version": "1.0.0",
+        "oscal-version": "1.2.0",
+        "roles": [
+          {
+            "id": "admin",
+            "title": "Administrator"
+          },
+          {
+            "id": "poc-for-customers",
+            "title": "Internal POC for Customers"
+          },
+          {
+            "id": "service-provider",
+            "title": "CSP IaaS Service Provider"
+          },
+          {
+            "id": "customer",
+            "title": "External Customer"
+          }
+        ],
+        "parties": [
+          {
+            "uuid": "a4f2ad25-3e1d-4b98-802f-24731c8bc983",
+            "type": "person",
+            "remarks": "Leveraged Authorization POC"
+          },
+          {
+            "uuid": "53f3c42a-3ad2-4f11-b78e-2b0beabb50fb",
+            "type": "person",
+            "remarks": "Leveraged Authorization (IaaS) POC"
+          },
+          {
+            "uuid": "39c2863a-4b6d-415a-9480-b84e9928da6b",
+            "type": "person",
+            "name": "Jane Doe"
+          }
+        ],
+        "responsible-parties": [
+          {
+            "role-id": "admin",
+            "party-uuids": [
+              "39c2863a-4b6d-415a-9480-b84e9928da6b"
+            ]
+          },
+          {
+            "role-id": "poc-for-customers",
+            "party-uuids": [
+              "a4f2ad25-3e1d-4b98-802f-24731c8bc983"
+            ]
+          },
+          {
+            "role-id": "service-provider",
+            "party-uuids": [
+              "53f3c42a-3ad2-4f11-b78e-2b0beabb50fb"
+            ]
+          }
+        ]
+      },
+      "import-profile": {
+        "href": "#6b45e2a5-b238-4752-ba12-cfd6ef2a83df"
+      },
+      "system-characteristics": {
+        "system-ids": [
+          {
+            "id": "paas_system_iaas_customer"
+          }
+        ],
+        "system-name": "Example PaaS System",
+        "description": "An example of an authorized PaaS leveraging an authorized IaaS\n",
+        "system-information": {
+          "information-types": [
+            {
+              "uuid": "22222222-0000-4000-9000-200000000000",
+              "title": "System and Network Monitoring",
+              "description": "This system handles information pertaining to audit events.",
+              "categorizations": [
+                {
+                  "system": "https://doi.org/10.6028/NIST.SP.800-60v2r1",
+                  "information-type-ids": [
+                    "C.3.5.8"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "status": {
+          "state": "operational"
+        },
+        "authorization-boundary": {
+          "description": "The virtualized components deployed on the CSP PaaS."
+        },
+        "remarks": "Example remarks."
+      },
+      "system-implementation": {
+        "leveraged-authorizations": [
+          {
+            "uuid": "ea6ddd2a-a4d5-4d3d-8fb2-140bea9d1da1",
+            "title": "CSP IaaS System Security Plan",
+            "links": [
+              {
+                "href": "#b3a3079c-ace3-4aae-9acd-d52d418472f2",
+                "rel": "oscal-srm-json"
+              }
+            ],
+            "party-uuid": "53f3c42a-3ad2-4f11-b78e-2b0beabb50fb",
+            "date-authorized": "2024-04-16"
+          }
+        ],
+        "users": [
+          {
+            "uuid": "22222222-0000-4000-9000-200000000001",
+            "role-ids": [
+              "admin"
+            ],
+            "authorized-privileges": [
+              {
+                "title": "Administrator",
+                "functions-performed": [
+                  "Manages the components within the PaaS."
+                ]
+              }
+            ]
+          }
+        ],
+        "components": [
+          {
+            "uuid": "9fcc2289-0acb-4bf4-b5cb-eaf7731ac751",
+            "type": "this-system",
+            "title": "This System",
+            "description": "This Leveraging PaaS.\nThe entire system as depicted in the system authorization boundary",
+            "status": {
+              "state": "operational"
+            }
+          },
+          {
+            "uuid": "5c762030-2103-4f5e-af1a-7a1b9a61307e",
+            "type": "software",
+            "title": "Example Operating System",
+            "description": "An example operating system.",
+            "status": {
+              "state": "operational"
+            }
+          },
+          {
+            "uuid": "d8a6d9fc-1aaa-4db0-8b15-81f747cb267c",
+            "type": "system",
+            "title": "Leveraged System IaaS",
+            "description": "Leveraged IaaS Component",
+            "props": [
+              {
+                "name": "implementation-point",
+                "value": "external"
+              },
+              {
+                "name": "leveraged-authorization-uuid",
+                "value": "ea6ddd2a-a4d5-4d3d-8fb2-140bea9d1da1"
+              },
+              {
+                "name": "inherited-uuid",
+                "value": "1c361dea-0aae-4025-815b-1abe80b35416"
+              }
+            ],
+            "status": {
+              "state": "operational"
+            }
+          }
+        ]
+      },
+      "control-implementation": {
+        "description": "",
+          "implemented-requirements": [
+            {
+              "uuid": "076d9a7b-e017-4413-9fd0-9df4010f826d",
+              "control-id": "ac-2",
+              "by-components": [
+                {
+                  "component-uuid": "9fcc2289-0acb-4bf4-b5cb-eaf7731ac751",
+                  "uuid": "3b1ab6df-e18e-4e35-a2e7-17c65340c952",
+                  "description": "The PaaS configures the provided access control implementation.",
+                  "implementation-status": {
+                    "state": "implemented"
+                  },
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "Control 2"
+                    }
+                  ],
+                  "inherited": [
+                    {
+                      "uuid": "22222222-9f2b-4d75-83cd-eb2b3a8bc06e",
+                      "provided-uuid": "dd2130ea-43dd-465c-b8ef-915999c7b910",
+                      "description": "The CSP provide an access control implementation that is exposed to customers.",
+                      "exportable": false
+                    }
+                  ],
+                  "satisfied": [
+                    {
+                      "uuid": "ab41d207-b522-4faa-a7c5-6ec6b8f416be",
+                      "responsibility-uuid": "0ad36c3d-2bd0-47d2-84ef-28e3de24104e",
+                      "description": "The platform CSP defines roles.",
+                      "exportable": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "uuid": "e710faf6-f0e0-4a74-9f19-8b5bef9d4f48",
+              "control-id": "au-11",
+              "by-components": [
+                {
+                  "component-uuid": "5c762030-2103-4f5e-af1a-7a1b9a61307e",
+                  "uuid": "78b2db00-db62-404e-9b9b-6ced48b5bcc5",
+                  "description": "The CSP handles logs for the platform through a centralized logging implementation.",
+                  "implementation-status": {
+                    "state": "implemented"
+                  },
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "Control 3"
+                    }
+                  ],
+                  "responsibilities": [
+                      {
+                        "uuid": "6f827de1-390e-44b9-b4ed-21e66611a7c5",
+                        "description": "The customer must retain audit logs for their own application.",
+                        "exportable": true
+                      } 
+                  ]
+                }
+              ]
+            }
+          ]
+      },
+      "back-matter": {
+        "resources": [
+          {
+            "uuid": "6b45e2a5-b238-4752-ba12-cfd6ef2a83df",
+            "description": "NIST Special Publication 800-53 Revision 5: High Baseline Profile",
+            "rlinks": [
+              {
+                "href": "../../../nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_HIGH-baseline_profile.xml",
+                "media-type": "application/oscal.catalog+xml"
+              },
+              {
+                "href": "../../../nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_HIGH-baseline_profile.json",
+                "media-type": "application/oscal.catalog+json"
+              },
+              {
+                "href": "../../../nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_HIGH-baseline_profile.yaml",
+                "media-type": "application/oscal.catalog+yaml"
+              }
+            ]
+          },
+          {
+            "uuid": "b3a3079c-ace3-4aae-9acd-d52d418472f2",
+            "description": "Leveraged CSP1 SRM in JSON",
+            "rlinks": [
+              {
+                "href": "./csp1_srm.json",
+                "media-type": "application/oscal.catalog+json"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+  

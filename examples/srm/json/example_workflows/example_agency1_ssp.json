@@ -1,0 +1,275 @@
+{
+  "system-security-plan": {
+    "uuid": "d197545f-353f-407b-9166-ebf959774c5a",
+    "metadata": {
+      "title": "Example Agency1 System Security Plan",
+      "last-modified": "2024-02-01T13:57:28.355446-04:00",
+      "version": "1.0.0",
+      "oscal-version": "1.2.0",
+      "roles": [
+        {
+          "id": "owner",
+          "title": "Agency1 System Owner"
+        },
+        {
+          "id": "system-engineer",
+          "title": "Agency1 System Engineer"
+        },
+        {
+          "id": "develop",
+          "title": "Agency1 Developer"
+        }
+      ],
+      "parties": [
+        {
+          "uuid": "a4f2ad25-3e1d-4b98-802f-24731c8bc983",
+          "type": "organization",
+          "remarks": "Agency1"
+        },
+        {
+          "uuid": "53f3c42a-3ad2-4f11-b78e-2b0beabb50fb",
+          "type": "person",
+          "remarks": "John Smith"
+        },
+        {
+          "uuid": "39c2863a-4b6d-415a-9480-b84e9928da6b",
+          "type": "person",
+          "name": "Jane Doe"
+        },
+        {
+          "uuid": "84a775fd-def0-475c-869c-38800bfe9908",
+          "type": "person",
+          "name": "Richard Roe"
+        }
+      ],
+      "responsible-parties": [
+        {
+          "role-id": "owner",
+          "party-uuids": [
+            "53f3c42a-3ad2-4f11-b78e-2b0beabb50fb"
+          ]
+        },
+        {
+          "role-id": "system-engineer",
+          "party-uuids": [
+            "39c2863a-4b6d-415a-9480-b84e9928da6b"
+          ]
+        },
+        {
+          "role-id": "developer",
+          "party-uuids": [
+            "84a775fd-def0-475c-869c-38800bfe9908"
+          ]
+        }
+      ]
+    },
+    "import-profile": {
+      "href": "#6b45e2a5-b238-4752-ba12-cfd6ef2a83df"
+    },
+    "system-characteristics": {
+      "system-ids": [
+        {
+          "identifier-type": "http://ietf.org/rfc/rfc4122",
+          "id": "8101e04d-8305-4e73-bb95-6b59f645b143"
+        }
+      ],
+      "system-name": "Example Agency1 System",
+      "description": "The is an example system for Agency 1",
+      "system-information": {
+        "information-types": [
+          {
+            "uuid": "7d28ac6e-5970-4f4c-a508-5a3715f0f02b",
+            "title": "System and Network Monitoring",
+            "description": "This system maintains historical logging and auditing information for all client devices connected to this system.",
+            "categorizations": [
+              {
+                "system": "https://doi.org/10.6028/NIST.SP.800-60v2r1",
+                "information-type-ids": [
+                  "C.3.5.8"
+                ]
+              }
+            ],
+            "confidentiality-impact": {
+              "base": "fips-199-moderate"
+            },
+            "integrity-impact": {
+              "base": "fips-199-moderate"
+            },
+            "availability-impact": {
+              "base": "fips-199-low"
+            }
+          }
+        ]
+      },
+      "status": {
+        "state": "operational"
+      },
+      "authorization-boundary": {
+        "description": "An attach diagram for the Agency1 System authorization boundary."
+      },
+      "remarks": "Example remarks."
+    },
+    "system-implementation": {
+      "leveraged-authorizations": [
+        {
+          "uuid": "ea6ddd2a-a4d5-4d3d-8fb2-140bea9d1da1",
+          "title": "CSP IaaS System Security Plan",
+          "links": [
+            {
+              "href": "#b3a3079c-ace3-4aae-9acd-d52d418472f2",
+              "rel": "oscal-srm-json"
+            }
+          ],
+          "party-uuid": "53f3c42a-3ad2-4f11-b78e-2b0beabb50fb",
+          "date-authorized": "2024-04-16"
+        }
+      ],
+      "users": [
+        {
+          "uuid": "00d323d3-dc3f-4d93-900f-f13430e094d3",
+          "title": "Application Administrator",
+          "description": "The developer of the application supports IFA Public Affairs Officers by administering the application and its infrastructure.",
+          "role-ids": [
+            "developer"
+          ]
+        }
+      ],
+      "components": [
+        {
+          "uuid": "fb91d914-dca4-4ded-a22e-f9f3af14040d",
+          "type": "this-system",
+          "title": "This System",
+          "description": "The Agency1 System",
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "5c762030-2103-4f5e-af1a-7a1b9a61307e",
+          "type": "software",
+          "title": "Example Operating System from PaaS",
+          "description": "An example operating system.",
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "d8a6d9fc-1aaa-4db0-8b15-81f747cb267c",
+          "type": "system",
+          "title": "Leveraged System IaaS",
+          "description": "Leveraged IaaS Component",
+          "props": [
+            {
+              "name": "implementation-point",
+              "value": "external"
+            },
+            {
+              "name": "leveraged-authorization-uuid",
+              "value": "ea6ddd2a-a4d5-4d3d-8fb2-140bea9d1da1"
+            },
+            {
+              "name": "inherited-uuid",
+              "value": "1c361dea-0aae-4025-815b-1abe80b35416"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        }
+      ]
+    },
+    "control-implementation": {
+      "description": "",
+        "implemented-requirements": [
+          {
+            "uuid": "076d9a7b-e017-4413-9fd0-9df4010f826d",
+            "control-id": "ac-2",
+            "by-components": [
+              {
+                "component-uuid": "d8a6d9fc-1aaa-4db0-8b15-81f747cb267c",
+                "uuid": "3b1ab6df-e18e-4e35-a2e7-17c65340c952",
+                "description": "The CSP manages access to infrastructure through its access control implementation.",
+                "implementation-status": {
+                  "state": "implemented"
+                },
+                "props": [
+                  {
+                    "name": "label",
+                    "value": "Control 2"
+                  }
+                ],
+                "satisfied": [
+                  {
+                    "uuid": "ab41d207-b522-4faa-a7c5-6ec6b8f416be",
+                    "responsibility-uuid": "0ad36c3d-2bd0-47d2-84ef-28e3de24104e",
+                    "description": "The Agency 1 system defines the roles.",
+                    "exportable": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "uuid": "e710faf6-f0e0-4a74-9f19-8b5bef9d4f48",
+            "control-id": "au-11",
+            "by-components": [
+              {
+                "component-uuid": "5c762030-2103-4f5e-af1a-7a1b9a61307e",
+                "uuid": "78b2db00-db62-404e-9b9b-6ced48b5bcc5",
+                "description": "The Agency1 System has a centralized logging implementation.",
+                "implementation-status": {
+                  "state": "implemented"
+                },
+                "props": [
+                  {
+                    "name": "label",
+                    "value": "Control 3"
+                  }
+                ],
+                "satisfied": [
+                  {
+                    "uuid": "ab41d207-b522-4faa-a7c5-6ec6b8f416be",
+                    "responsibility-uuid": "6f827de1-390e-44b9-b4ed-21e66611a7c5",
+                    "description": "The Agency1 system implements logging for provided components.",
+                    "exportable": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+    },
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "6b45e2a5-b238-4752-ba12-cfd6ef2a83df",
+          "description": "NIST Special Publication 800-53 Revision 5: High Baseline Profile",
+          "rlinks": [
+            {
+              "href": "../../../nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_HIGH-baseline_profile.xml",
+              "media-type": "application/oscal.catalog+xml"
+            },
+            {
+              "href": "../../../nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_HIGH-baseline_profile.json",
+              "media-type": "application/oscal.catalog+json"
+            },
+            {
+              "href": "../../../nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_HIGH-baseline_profile.yaml",
+              "media-type": "application/oscal.catalog+yaml"
+            }
+          ]
+        },
+        {
+          "uuid": "b3a3079c-ace3-4aae-9acd-d52d418472f2",
+          "description": "Leveraged CSP1 SRM in JSON",
+          "rlinks": [
+            {
+              "href": "./csp1_srm.json",
+              "media-type": "application/oscal.catalog+json"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
