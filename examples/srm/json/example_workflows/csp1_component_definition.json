@@ -1,0 +1,119 @@
+{
+    "component-definition": {
+      "uuid": "c0ab2b0b-e319-4768-bdef-a201b2d0e0bd",
+      "metadata": {
+        "title": "Component Definition from CSP1 SSP",
+        "last-modified": "2023-05-08T21:56:09.855332+00:00",
+        "version": "1.0",
+        "oscal-version": "1.2.0",
+        "roles": [
+            {
+              "id": "provider",
+              "title": "Provider"
+            },
+            {
+              "id": "customer",
+              "title": "External Customer"
+            }
+          ]
+      },
+      "components": [
+        {
+          "uuid": "1c361dea-0aae-4025-815b-1abe80b35416",
+          "type": "this-system",
+          "title": "CSP1 System",
+          "description": "Leveraged IaaS",
+          "control-implementations": [
+            {
+              "uuid": "f4c278c2-c79c-4e58-83a8-2404a5b28b28",
+              "source": "#6b45e2a5-b238-4752-ba12-cfd6ef2a83df",
+              "description": "An example control implementation with defined responsibilities.",
+              "implemented-requirements": [
+               {
+                "uuid": "3b1ab6df-e18e-4e35-a2e7-17c65340c952",
+                "control-id": "ac-2",
+                "description": "The CSP manages access to infrastructure through its access control implementation.",
+                "implementation-status": {
+                  "state": "implemented"
+                },
+              "provided": [
+                  {
+                      "uuid": "dd2130ea-43dd-465c-b8ef-915999c7b910",
+                      "description": "The access control implementation is provided to the customer.",
+                      "exportable": true
+                  }
+              ],
+              "responsibilities": [
+                  {
+                    "uuid": "0ad36c3d-2bd0-47d2-84ef-28e3de24104e",
+                    "description": "The customer has to define roles, identify privileged vs non-privileged",
+                    "provided-uuid": "dd2130ea-43dd-465c-b8ef-915999c7b910",
+                    "exportable": true
+                  }
+                ]
+               }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "48d026df-b0de-4501-bdb3-c312df937dbe",
+          "type": "software",
+          "title": "Example IaaS Service 1",
+          "description": "An example service provider by IaaS exposed to the IaaS customer",
+          "control-implementations": [
+            {
+              "uuid": "d7ca21ff-1a86-4024-8a3a-114b1ab23cb9",
+              "source": "#6b45e2a5-b238-4752-ba12-cfd6ef2a83df",
+              "description": "An example control implementation with defined responsibilities.",
+              "implemented-requirements": [
+                {
+                  "uuid": "0cff5c3c-5baf-4fa3-bddf-618e756ac63c",
+                  "control-id": "sc-7",
+                  "description": " The CSP can pre-configure servers and other components with TLS protocols, ciphers, and key exchange methods.",
+                  "implementation-status": {
+                    "state": "implemented"
+                  },
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "Control 1"
+                    }
+                  ],
+                  "responsibilities": [
+                      {
+                        "uuid": "85a69ddd-554c-4c60-bef9-2784bac674cd",
+                        "description": "The customer must generate keys and establish frequency for renewing.",
+                        "exportable": false
+                      } 
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "back-matter": {
+        "resources": [
+          {
+            "uuid": "6b45e2a5-b238-4752-ba12-cfd6ef2a83df",
+            "description": "NIST Special Publication 800-53 Revision 5: High Baseline Profile",
+            "rlinks": [
+              {
+                "href": "../../../nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_HIGH-baseline_profile.xml",
+                "media-type": "application/oscal.catalog+xml"
+              },
+              {
+                "href": "../../../nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_HIGH-baseline_profile.json",
+                "media-type": "application/oscal.catalog+json"
+              },
+              {
+                "href": "../../../nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_HIGH-baseline_profile.yaml",
+                "media-type": "application/oscal.catalog+yaml"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }

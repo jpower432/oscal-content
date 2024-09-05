@@ -1,0 +1,259 @@
+{
+    "system-security-plan": {
+      "uuid": "faea2b64-86d5-4a09-8f9b-45e02ffed0a3",
+      "metadata": {
+        "title": "Example Agency1 System Security Plan",
+        "last-modified": "2024-02-01T13:57:28.355446-04:00",
+        "version": "1.0.0",
+        "oscal-version": "1.2.0",
+        "roles": [
+          {
+            "id": "owner",
+            "title": "Agency1 System Owner"
+          },
+          {
+            "id": "system-engineer",
+            "title": "Agency1 System Engineer"
+          },
+          {
+            "id": "develop",
+            "title": "Agency1 Developer"
+          }
+        ],
+        "parties": [
+          {
+            "uuid": "a4f2ad25-3e1d-4b98-802f-24731c8bc983",
+            "type": "organization",
+            "remarks": "Agency1"
+          },
+          {
+            "uuid": "53f3c42a-3ad2-4f11-b78e-2b0beabb50fb",
+            "type": "person",
+            "remarks": "John Smith"
+          },
+          {
+            "uuid": "39c2863a-4b6d-415a-9480-b84e9928da6b",
+            "type": "person",
+            "name": "Jane Doe"
+          },
+          {
+            "uuid": "84a775fd-def0-475c-869c-38800bfe9908",
+            "type": "person",
+            "name": "Richard Roe"
+          }
+        ],
+        "responsible-parties": [
+          {
+            "role-id": "owner",
+            "party-uuids": [
+              "53f3c42a-3ad2-4f11-b78e-2b0beabb50fb"
+            ]
+          },
+          {
+            "role-id": "system-engineer",
+            "party-uuids": [
+              "39c2863a-4b6d-415a-9480-b84e9928da6b"
+            ]
+          },
+          {
+            "role-id": "developer",
+            "party-uuids": [
+              "84a775fd-def0-475c-869c-38800bfe9908"
+            ]
+          }
+        ]
+      },
+      "import-profile": {
+        "href": "#6b45e2a5-b238-4752-ba12-cfd6ef2a83df"
+      },
+      "system-characteristics": {
+        "system-ids": [
+          {
+            "identifier-type": "http://ietf.org/rfc/rfc4122",
+            "id": "8101e04d-8305-4e73-bb95-6b59f645b143"
+          }
+        ],
+        "system-name": "Example Agency1 System",
+        "description": "The is an example system for Agency 1",
+        "system-information": {
+          "information-types": [
+            {
+              "uuid": "7d28ac6e-5970-4f4c-a508-5a3715f0f02b",
+              "title": "System and Network Monitoring",
+              "description": "This system maintains historical logging and auditing information for all client devices connected to this system.",
+              "categorizations": [
+                {
+                  "system": "https://doi.org/10.6028/NIST.SP.800-60v2r1",
+                  "information-type-ids": [
+                    "C.3.5.8"
+                  ]
+                }
+              ],
+              "confidentiality-impact": {
+                "base": "fips-199-moderate"
+              },
+              "integrity-impact": {
+                "base": "fips-199-moderate"
+              },
+              "availability-impact": {
+                "base": "fips-199-low"
+              }
+            }
+          ]
+        },
+        "status": {
+          "state": "operational"
+        },
+        "authorization-boundary": {
+          "description": "An attach diagram for the Agency1 System authorization boundary."
+        },
+        "remarks": "Example remarks."
+      },
+      "system-implementation": {
+        "users": [
+          {
+            "uuid": "00d323d3-dc3f-4d93-900f-f13430e094d3",
+            "title": "Application Administrator",
+            "description": "The developer of the application administers the Agency1 application and its infrastructure.",
+            "role-ids": [
+              "developer"
+            ]
+          }
+        ],
+        "components": [
+          {
+            "uuid": "fb91d914-dca4-4ded-a22e-f9f3af14040d",
+            "type": "this-system",
+            "title": "This System",
+            "description": "The Agency1 System",
+            "status": {
+              "state": "operational"
+            }
+          },
+          {
+            "uuid": "5a3e1900-9247-47fb-951d-bcf3fb5ba567",
+            "type": "software",
+            "title": "Agency1 Application",
+            "description": "An application managed by Agency1",
+            "status": {
+              "state": "operational"
+            }
+          },
+          {
+            "uuid": "48d026df-b0de-4501-bdb3-c312df937dbe",
+            "type": "software",
+            "title": "Example IaaS Service 1",
+            "description": "An example service provider by IaaS exposed to the IaaS customer",
+            "props": [
+              {
+                "name": "implementation-point",
+                "value": "internal"
+              }
+            ],
+            "status": {
+              "state": "operational"
+            }
+          }
+        ]
+      },
+      "control-implementation": {
+        "description": "Example control implementation using AC-2 and SC-7.",
+          "implemented-requirements": [
+            {
+              "uuid": "076d9a7b-e017-4413-9fd0-9df4010f826d",
+              "control-id": "ac-2",
+              "by-components": [
+                {
+                  "component-uuid": "48d026df-b0de-4501-bdb3-c312df937dbe",
+                  "uuid": "9d46eb03-ebd1-4a41-b7fb-9fcaaabd7118",
+                  "description": "Agency1 manages access to infrastructure through its access control implementation.",
+                  "implementation-status": {
+                    "state": "implemented"
+                  },
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "Control 2"
+                    }
+                  ],
+                  "provided": [
+                    {
+                        "uuid": "dd2130ea-43dd-465c-b8ef-915999c7b910",
+                        "description": "The access control implementation is provided to the customer.",
+                        "exportable": true
+                    }
+                  ],
+                  "responsibilities": [
+                    {
+                      "uuid": "022d76c0-4712-4d8f-9092-07ed6c594d89",
+                      "description": "The customer has to define roles, identify privileged vs non-privileged",
+                      "provided-uuid": "dd2130ea-43dd-465c-b8ef-915999c7b910",
+                      "exportable": true
+                    }
+                  ],
+                  "satisfied": [
+                    {
+                      "uuid": "ab41d207-b522-4faa-a7c5-6ec6b8f416be",
+                      "responsibility-uuid": "0ad36c3d-2bd0-47d2-84ef-28e3de24104e",
+                      "description": "The Agency1 system defines the roles that pertain to their application.",
+                      "exportable": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "uuid": "fb883c71-3a63-4d23-bcc0-53cd3a1afbe7",
+              "control-id": "sc-7",
+              "by-components": [
+                {
+                  "component-uuid": "fb91d914-dca4-4ded-a22e-f9f3af14040d",
+                  "uuid": "0cff5c3c-5baf-4fa3-bddf-618e756ac63c",
+                  "description": " Agency1 can pre-configure servers and other components with TLS protocols, ciphers, and key exchange methods.",
+                  "implementation-status": {
+                    "state": "implemented"
+                  },
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "Control 1"
+                    }
+                  ],
+                  "satisfied": [
+                    {
+                      "uuid": "446460d9-9ea4-4fdf-a387-4a4eefa9fc3a",
+                      "responsibility-uuid": "85a69ddd-554c-4c60-bef9-2784bac674cd",
+                      "description": "The Agency1 generates keys and renews them quarterly.",
+                      "exportable": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+      },
+      "back-matter": {
+        "resources": [
+          {
+            "uuid": "6b45e2a5-b238-4752-ba12-cfd6ef2a83df",
+            "description": "NIST Special Publication 800-53 Revision 5: High Baseline Profile",
+            "rlinks": [
+              {
+                "href": "../../../nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_HIGH-baseline_profile.xml",
+                "media-type": "application/oscal.catalog+xml"
+              },
+              {
+                "href": "../../../nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_HIGH-baseline_profile.json",
+                "media-type": "application/oscal.catalog+json"
+              },
+              {
+                "href": "../../../nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_HIGH-baseline_profile.yaml",
+                "media-type": "application/oscal.catalog+yaml"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+  

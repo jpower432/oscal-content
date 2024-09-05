@@ -124,7 +124,6 @@
           "status": {
             "state": "operational"
           }
-          
         }
       ]
     },
@@ -154,13 +153,14 @@
                       "description": "The access control implementation is provided to the customer.",
                       "exportable": true
                   }
-              ],
+                ],
                 "responsibilities": [
-                  {
-                    "uuid": "0ad36c3d-2bd0-47d2-84ef-28e3de24104e",
-                    "description": "The customer has to define roles, identify privileged vs non-privileged",
-                    "exportable": true
-                  }
+                    {
+                      "uuid": "0ad36c3d-2bd0-47d2-84ef-28e3de24104e",
+                      "description": "The customer has to define roles, identify privileged vs non-privileged",
+                      "provided-uuid": "dd2130ea-43dd-465c-b8ef-915999c7b910",
+                      "exportable": true
+                    }
                 ]
               }
             ]
@@ -168,6 +168,12 @@
           {
             "uuid": "fb883c71-3a63-4d23-bcc0-53cd3a1afbe7",
             "control-id": "sc-7",
+            "props": [
+              {
+                "name": "label",
+                "value": "Control 1"
+              }
+            ],
             "by-components": [
               {
                 "component-uuid": "48d026df-b0de-4501-bdb3-c312df937dbe",
@@ -176,24 +182,10 @@
                 "implementation-status": {
                   "state": "implemented"
                 },
-                "props": [
-                  {
-                    "name": "label",
-                    "value": "Control 1"
-                  }
-                ],
-                "provided": [
-                    {
-                        "uuid": "dd2130ea-43dd-465c-b8ef-915999c7b910",
-                        "description": "The TLS implementation is provided to the customer.",
-                        "exportable": false
-                    }
-                ],
                 "responsibilities": [
                     {
                       "uuid": "85a69ddd-554c-4c60-bef9-2784bac674cd",
                       "description": "The customer must generate keys and establish frequency for renewing.",
-                      "provided-uuid": "dd2130ea-43dd-465c-b8ef-915999c7b910",
                       "exportable": false
                     } 
                 ]

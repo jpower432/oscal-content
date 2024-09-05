@@ -1,8 +1,8 @@
 {
   "system-security-plan": {
-    "uuid": "d197545f-353f-407b-9166-ebf959774c5a",
+    "uuid": "21de34a9-004b-4518-a01b-77ffb82cf560",
     "metadata": {
-      "title": "Example Agency1 System Security Plan",
+      "title": "Example Agency1 System Security Plan with PaaS",
       "last-modified": "2024-02-01T13:57:28.355446-04:00",
       "version": "1.0.0",
       "oscal-version": "1.2.0",
@@ -18,6 +18,10 @@
         {
           "id": "develop",
           "title": "Agency1 Developer"
+        },
+        {
+          "id": "service-provider",
+          "title": "IaaS Provider POC"
         }
       ],
       "parties": [
@@ -25,6 +29,11 @@
           "uuid": "a4f2ad25-3e1d-4b98-802f-24731c8bc983",
           "type": "organization",
           "remarks": "Agency1"
+        },
+        {
+          "uuid": "e040adb1-d464-4723-892d-a1abb133a246",
+          "type": "person",
+          "remarks": "Leveraged Authorization POC"
         },
         {
           "uuid": "53f3c42a-3ad2-4f11-b78e-2b0beabb50fb",
@@ -46,13 +55,19 @@
         {
           "role-id": "owner",
           "party-uuids": [
-            "53f3c42a-3ad2-4f11-b78e-2b0beabb50fb"
+            "39c2863a-4b6d-415a-9480-b84e9928da6b"
+          ]
+        },
+        {
+          "role-id": "service-provider",
+          "party-uuids": [
+            "e040adb1-d464-4723-892d-a1abb133a246"
           ]
         },
         {
           "role-id": "system-engineer",
           "party-uuids": [
-            "39c2863a-4b6d-415a-9480-b84e9928da6b"
+            "53f3c42a-3ad2-4f11-b78e-2b0beabb50fb"
           ]
         },
         {
@@ -73,8 +88,8 @@
           "id": "8101e04d-8305-4e73-bb95-6b59f645b143"
         }
       ],
-      "system-name": "Example Agency1 System",
-      "description": "The is an example system for Agency 1",
+      "system-name": "Example Agency1 System with PaaS",
+      "description": "The is an example system for Agency1 leveraging another Agency1 system.",
       "system-information": {
         "information-types": [
           {
@@ -112,15 +127,15 @@
     "system-implementation": {
       "leveraged-authorizations": [
         {
-          "uuid": "ea6ddd2a-a4d5-4d3d-8fb2-140bea9d1da1",
-          "title": "CSP IaaS System Security Plan",
+          "uuid": "ef08105c-fa40-4f06-924b-50cdd11feb94",
+          "title": "Example Agency1 System Security Plan",
           "links": [
             {
               "href": "#b3a3079c-ace3-4aae-9acd-d52d418472f2",
               "rel": "oscal-srm-json"
             }
           ],
-          "party-uuid": "53f3c42a-3ad2-4f11-b78e-2b0beabb50fb",
+          "party-uuid": "e040adb1-d464-4723-892d-a1abb133a246",
           "date-authorized": "2024-04-16"
         }
       ],
@@ -128,7 +143,7 @@
         {
           "uuid": "00d323d3-dc3f-4d93-900f-f13430e094d3",
           "title": "Application Administrator",
-          "description": "The developer of the application supports IFA Public Affairs Officers by administering the application and its infrastructure.",
+          "description": "The developer of the application administers the application and its infrastructure.",
           "role-ids": [
             "developer"
           ]
@@ -136,7 +151,7 @@
       ],
       "components": [
         {
-          "uuid": "fb91d914-dca4-4ded-a22e-f9f3af14040d",
+          "uuid": "ce473558-a85e-4fbd-83c7-b2309fe61dc9",
           "type": "this-system",
           "title": "This System",
           "description": "The Agency1 System",
@@ -145,16 +160,39 @@
           }
         },
         {
-          "uuid": "5c762030-2103-4f5e-af1a-7a1b9a61307e",
+          "uuid": "9fe372cd-1899-48d5-87fe-090227b08bf1",
           "type": "software",
-          "title": "Example Operating System from PaaS",
-          "description": "An example operating system.",
+          "title": "CMS",
+          "description": "Content Management System",
           "status": {
             "state": "operational"
           }
         },
         {
-          "uuid": "d8a6d9fc-1aaa-4db0-8b15-81f747cb267c",
+          "uuid": "394ae8a0-f6f2-482b-89a8-3c3b1dde90c6",
+          "type": "software",
+          "title": "Leveraged Agency1 Application",
+          "description": "An application managed by Agency1",
+          "props": [
+            {
+              "name": "implementation-point",
+              "value": "external"
+            },
+            {
+              "name": "leveraged-authorization-uuid",
+              "value": "ef08105c-fa40-4f06-924b-50cdd11feb94"
+            },
+            {
+              "name": "inherited-uuid",
+              "value": "5a3e1900-9247-47fb-951d-bcf3fb5ba567"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "7d434f14-57da-4336-a735-2491931e8c47",
           "type": "system",
           "title": "Leveraged System IaaS",
           "description": "Leveraged IaaS Component",
@@ -165,11 +203,11 @@
             },
             {
               "name": "leveraged-authorization-uuid",
-              "value": "ea6ddd2a-a4d5-4d3d-8fb2-140bea9d1da1"
+              "value": "ef08105c-fa40-4f06-924b-50cdd11feb94"
             },
             {
               "name": "inherited-uuid",
-              "value": "1c361dea-0aae-4025-815b-1abe80b35416"
+              "value": "fb91d914-dca4-4ded-a22e-f9f3af14040d"
             }
           ],
           "status": {
@@ -179,58 +217,66 @@
       ]
     },
     "control-implementation": {
-      "description": "",
+      "description": "Example control implementation using AC-2 and SC-7.",
         "implemented-requirements": [
           {
             "uuid": "076d9a7b-e017-4413-9fd0-9df4010f826d",
             "control-id": "ac-2",
+            "props": [
+              {
+                "name": "label",
+                "value": "Control 2"
+              }
+            ],
             "by-components": [
               {
-                "component-uuid": "d8a6d9fc-1aaa-4db0-8b15-81f747cb267c",
+                "component-uuid": "ce473558-a85e-4fbd-83c7-b2309fe61dc9",
                 "uuid": "3b1ab6df-e18e-4e35-a2e7-17c65340c952",
-                "description": "The CSP manages access to infrastructure through its access control implementation.",
+                "description": "The Agency1 system leveraging the Agency2 access control implementation and provides configuration.",
                 "implementation-status": {
                   "state": "implemented"
                 },
-                "props": [
+                "inherited": [
                   {
-                    "name": "label",
-                    "value": "Control 2"
+                    "uuid": "c2349d97-fafd-45cd-8aa5-1d0bfce03ef8",
+                    "provided-uuid": "dd2130ea-43dd-465c-b8ef-915999c7b910",
+                    "description": "The an access control implementation is leveraged.",
+                    "exportable": false
                   }
                 ],
                 "satisfied": [
                   {
                     "uuid": "ab41d207-b522-4faa-a7c5-6ec6b8f416be",
                     "responsibility-uuid": "0ad36c3d-2bd0-47d2-84ef-28e3de24104e",
-                    "description": "The Agency 1 system defines the roles.",
+                    "description": "Agency1 define privileged and non-privileged roles.",
                     "exportable": true
                   }
                 ]
+               
               }
             ]
           },
           {
-            "uuid": "e710faf6-f0e0-4a74-9f19-8b5bef9d4f48",
+            "uuid": "64ba9663-b555-4dec-a48d-c2d4f0104fb7",
             "control-id": "au-11",
+            "props": [
+              {
+                "name": "label",
+                "value": "Control 4"
+              }
+            ],
             "by-components": [
               {
-                "component-uuid": "5c762030-2103-4f5e-af1a-7a1b9a61307e",
-                "uuid": "78b2db00-db62-404e-9b9b-6ced48b5bcc5",
-                "description": "The Agency1 System has a centralized logging implementation.",
+                "component-uuid": "9fe372cd-1899-48d5-87fe-090227b08bf1",
+                "uuid": "6f54514f-4826-477f-943e-14087932f425",
+                "description": "The CMS can be configured to meet log retention requirements with an audit log plugin.",
                 "implementation-status": {
                   "state": "implemented"
                 },
-                "props": [
+                "responsibilities": [
                   {
-                    "name": "label",
-                    "value": "Control 3"
-                  }
-                ],
-                "satisfied": [
-                  {
-                    "uuid": "ab41d207-b522-4faa-a7c5-6ec6b8f416be",
-                    "responsibility-uuid": "6f827de1-390e-44b9-b4ed-21e66611a7c5",
-                    "description": "The Agency1 system implements logging for provided components.",
+                    "uuid": "ad9b31ac-cd1e-44db-9534-5f9adb9e6dcb",
+                    "description": "Customers are responsible for retaining audit records for a period defined by their audit policy to meet organizational retention requirements.",
                     "exportable": true
                   }
                 ]
@@ -261,10 +307,10 @@
         },
         {
           "uuid": "b3a3079c-ace3-4aae-9acd-d52d418472f2",
-          "description": "Leveraged CSP1 SRM in JSON",
+          "description": "Leveraged Agency1 SRM in JSON",
           "rlinks": [
             {
-              "href": "./csp1_srm.json",
+              "href": "./example_agency1_srm.json",
               "media-type": "application/oscal.catalog+json"
             }
           ]

@@ -1,0 +1,157 @@
+{
+  "shared-responsibility": {
+    "uuid": "1eaff84c-9948-493e-8ea3-07e9ab87b87a",
+    "metadata": {
+      "title": "Shared Responsibilty Model for Agency1 SSP",
+      "published": "2023-05-19T14:46:54-04:00",
+      "last-modified": "2024-03-01T13:57:28.355446-04:00",
+      "version": "1.1",
+      "oscal-version": "1.2.0",
+      "roles": [
+        {
+          "id": "admin",
+          "title": "Administrator"
+        },
+        {
+          "id": "poc-for-customers",
+          "title": "Internal POC for Customers"
+        }
+      ],
+      "parties": [
+        {
+          "uuid": "e040adb1-d464-4723-892d-a1abb133a246",
+          "type": "person",
+          "remarks": "Leveraged Authorization POC"
+        },
+        {
+          "uuid": "39c2863a-4b6d-415a-9480-b84e9928da6b",
+          "type": "person",
+          "name": "Jane Doe"
+        }
+      ],
+      "responsible-parties": [
+        {
+          "role-id": "admin",
+          "party-uuids": [
+            "39c2863a-4b6d-415a-9480-b84e9928da6b"
+          ]
+        },
+        {
+          "role-id": "poc-for-customers",
+          "party-uuids": [
+            "e040adb1-d464-4723-892d-a1abb133a246"
+          ]
+        }
+      ]
+    },
+    "source-ssp": {
+      "ssp-uuid": "faea2b64-86d5-4a09-8f9b-45e02ffed0a3",
+      "title": "Example Agency1 System Security Plan",
+      "published": "2023-05-19T14:46:54-04:00",
+      "last-modified": "2024-02-01T13:57:28.355446-04:00",
+      "party-uuid": "e040adb1-d464-4723-892d-a1abb133a246",
+      "date-authorized": "2024-04-16",
+      "referenced-profile":  {
+          "href": "#6b45e2a5-b238-4752-ba12-cfd6ef2a83df"
+      },
+      "components": [
+        {
+          "uuid": "fb91d914-dca4-4ded-a22e-f9f3af14040d",
+          "type": "this-system",
+          "title": "This System",
+          "description": "The Agency1 System",
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "5a3e1900-9247-47fb-951d-bcf3fb5ba567",
+          "type": "software",
+          "title": "Agency1 Application",
+          "description": "An application managed by Agency1",
+          "status": {
+            "state": "operational"
+          }
+        },
+        {
+          "uuid": "48d026df-b0de-4501-bdb3-c312df937dbe",
+          "type": "software",
+          "title": "Example IaaS Service 1",
+          "description": "An example service provider by IaaS exposed to the IaaS customer",
+          "props": [
+            {
+              "name": "implementation-point",
+              "value": "internal"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        }
+      ]
+    },
+    "control-implementation": {
+      "description": "Example control implementation using AC-2. SC-7 is removed with no exportable information.",
+          "implemented-requirements": [
+            {
+              "uuid": "076d9a7b-e017-4413-9fd0-9df4010f826d",
+              "control-id": "ac-2",
+              "by-components": [
+                {
+                  "component-uuid": "48d026df-b0de-4501-bdb3-c312df937dbe",
+                  "uuid": "9d46eb03-ebd1-4a41-b7fb-9fcaaabd7118",
+                  "description": "Agency1 manages access to infrastructure through its access control implementation.",
+                  "implementation-status": {
+                    "state": "implemented"
+                  },
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "Control 2"
+                    }
+                  ],
+                  "provided": [
+                    {
+                        "uuid": "dd2130ea-43dd-465c-b8ef-915999c7b910",
+                        "description": "The access control implementation is provided to the customer.",
+                        "exportable": true
+                    }
+                  ],
+                  "responsibilities": [
+                    {
+                      "uuid": "022d76c0-4712-4d8f-9092-07ed6c594d89",
+                      "description": "The customer has to define roles, identify privileged vs non-privileged",
+                      "provided-uuid": "dd2130ea-43dd-465c-b8ef-915999c7b910",
+                      "exportable": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+    },
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "6b45e2a5-b238-4752-ba12-cfd6ef2a83df",
+          "description": "NIST Special Publication 800-53 Revision 5: High Baseline Profile",
+          "rlinks": [
+            {
+              "href": "../../../nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_HIGH-baseline_profile.xml",
+              "media-type": "application/oscal.catalog+xml"
+            },
+            {
+              "href": "../../../nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_HIGH-baseline_profile.json",
+              "media-type": "application/oscal.catalog+json"
+            },
+            {
+              "href": "../../../nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_HIGH-baseline_profile.yaml",
+              "media-type": "application/oscal.catalog+yaml"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+

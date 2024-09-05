@@ -174,11 +174,17 @@
         ]
       },
       "control-implementation": {
-        "description": "",
+        "description": "Example control implementation using AC-2 and AU-11.",
           "implemented-requirements": [
             {
               "uuid": "076d9a7b-e017-4413-9fd0-9df4010f826d",
               "control-id": "ac-2",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "Control 2"
+                }
+              ],
               "by-components": [
                 {
                   "component-uuid": "9fcc2289-0acb-4bf4-b5cb-eaf7731ac751",
@@ -187,15 +193,9 @@
                   "implementation-status": {
                     "state": "implemented"
                   },
-                  "props": [
-                    {
-                      "name": "label",
-                      "value": "Control 2"
-                    }
-                  ],
                   "inherited": [
                     {
-                      "uuid": "22222222-9f2b-4d75-83cd-eb2b3a8bc06e",
+                      "uuid": "c2349d97-fafd-45cd-8aa5-1d0bfce03ef8",
                       "provided-uuid": "dd2130ea-43dd-465c-b8ef-915999c7b910",
                       "description": "The CSP provide an access control implementation that is exposed to customers.",
                       "exportable": false
@@ -215,26 +215,26 @@
             {
               "uuid": "e710faf6-f0e0-4a74-9f19-8b5bef9d4f48",
               "control-id": "au-11",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "Control 3"
+                }
+              ],
               "by-components": [
                 {
                   "component-uuid": "5c762030-2103-4f5e-af1a-7a1b9a61307e",
                   "uuid": "78b2db00-db62-404e-9b9b-6ced48b5bcc5",
-                  "description": "The CSP handles logs for the platform through a centralized logging implementation.",
+                  "description": "The operating system centralized audit logs to a location on disk with configurable retention periods.",
                   "implementation-status": {
                     "state": "implemented"
                   },
-                  "props": [
-                    {
-                      "name": "label",
-                      "value": "Control 3"
-                    }
-                  ],
                   "responsibilities": [
-                      {
-                        "uuid": "6f827de1-390e-44b9-b4ed-21e66611a7c5",
-                        "description": "The customer must retain audit logs for their own application.",
-                        "exportable": true
-                      } 
+                    {
+                      "uuid": "6f827de1-390e-44b9-b4ed-21e66611a7c5",
+                      "description": "Customers are responsible for retaining audit records for a period defined by their audit policy to meet organizational retention requirements.",
+                      "exportable": true
+                    }
                   ]
                 }
               ]

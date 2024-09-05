@@ -104,7 +104,7 @@
         ]
       },
       "control-implementation": {
-        "description": "Example control implementation using AC-2 and SC-7.",
+        "description": "Example control implementation using AC-2. SC-7 is removed with noting being exportable.",
           "implemented-requirements": [
             {
               "uuid": "076d9a7b-e017-4413-9fd0-9df4010f826d",
@@ -123,28 +123,15 @@
                         "description": "The access control implementation is provided to the customer.",
                         "exportable": true
                     }
-                ],
-                "responsibilities": [
+                  ],
+                  "responsibilities": [
                     {
                       "uuid": "0ad36c3d-2bd0-47d2-84ef-28e3de24104e",
                       "description": "The customer has to define roles, identify privileged vs non-privileged",
+                      "provided-uuid": "dd2130ea-43dd-465c-b8ef-915999c7b910",
                       "exportable": true
                     }
-                ]
-                }
-              ]
-            },
-            {
-              "uuid": "fb883c71-3a63-4d23-bcc0-53cd3a1afbe7",
-              "control-id": "sc-7",
-              "by-components": [
-                {
-                  "component-uuid": "48d026df-b0de-4501-bdb3-c312df937dbe",
-                  "uuid": "0cff5c3c-5baf-4fa3-bddf-618e756ac63c",
-                  "description": " The CSP can pre-configure servers and other components with TLS protocols, ciphers, and key exchange methods.",
-                  "implementation-status": {
-                    "state": "implemented"
-                  }
+                  ]
                 }
               ]
             }
