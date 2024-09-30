@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-definition xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      uuid="c0ab2b0b-e319-4768-bdef-a201b2d0e0bd">
+   <metadata>
+      <title>Component Definition from CSP1 SSP</title>
+      <last-modified>2023-05-08T21:56:09.855332+00:00</last-modified>
+      <version>1.0</version>
+      <oscal-version>1.2.0</oscal-version>
+      <role id="provider">
+         <title>Provider</title>
+      </role>
+      <role id="customer">
+         <title>External Customer</title>
+      </role>
+   </metadata>
+   <component uuid="1c361dea-0aae-4025-815b-1abe80b35416" type="this-system">
+      <title>CSP1 System</title>
+      <description>
+         <p>Leveraged IaaS</p>
+      </description>
+      <control-implementation uuid="f4c278c2-c79c-4e58-83a8-2404a5b28b28"
+                              source="#6b45e2a5-b238-4752-ba12-cfd6ef2a83df">
+         <description>
+            <p>An example control implementation with defined responsibilities.</p>
+         </description>
+         <implemented-requirement uuid="3b1ab6df-e18e-4e35-a2e7-17c65340c952" control-id="sc-13">
+            <description>
+               <p>An implementation description</p>
+            </description>
+            <implementation-status state="implemented"/>
+            <responsibility uuid="0ad36c3d-2bd0-47d2-84ef-28e3de24104e" exportable="true">
+               <description>
+                  <p>A responsibilty</p>
+               </description>
+            </responsibility>
+         </implemented-requirement>
+      </control-implementation>
+   </component>
+   <component uuid="48d026df-b0de-4501-bdb3-c312df937dbe" type="software">
+      <title>Example IaaS Service 1</title>
+      <description>
+         <p>An example service provider by IaaS exposed to the IaaS customer</p>
+      </description>
+      <control-implementation uuid="d7ca21ff-1a86-4024-8a3a-114b1ab23cb9"
+                              source="#6b45e2a5-b238-4752-ba12-cfd6ef2a83df">
+         <description>
+            <p>An example control implementation with defined responsibilities.</p>
+         </description>
+         <implemented-requirement uuid="0cff5c3c-5baf-4fa3-bddf-618e756ac63c" control-id="sc-7">
+            <description>
+               <p>The Example IaaS System has pre-configure servers and other components with TLS protocols, ciphers, and key exchange methods.</p>
+            </description>
+            <implementation-status state="implemented"/>
+            <provided uuid="dd2130ea-43dd-465c-b8ef-915999c7b910" exportable="true">
+               <description>
+                  <p>The Example IaaS System provides the underlying TLS infrastructure, including certificates, cipher suites, and protocol negotiation mechanisms.</p>
+               </description>
+            </provided>
+            <responsibility uuid="85a69ddd-554c-4c60-bef9-2784bac674cd"
+                            provided-uuid="dd2130ea-43dd-465c-b8ef-915999c7b910"
+                            exportable="true">
+               <description>
+                  <p>If the customer is using customer-managed keys, they must generate keys and establish frequency for renewing.</p>
+               </description>
+            </responsibility>
+         </implemented-requirement>
+      </control-implementation>
+   </component>
+   <back-matter>
+      <resource uuid="6b45e2a5-b238-4752-ba12-cfd6ef2a83df">
+         <description>
+            <p>NIST Special Publication 800-53 Revision 5: High Baseline Profile</p>
+         </description>
+         <rlink href="../../../nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_HIGH-baseline_profile.xml"
+                media-type="application/oscal.catalog+xml"/>
+         <rlink href="../../../nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_HIGH-baseline_profile.json"
+                media-type="application/oscal.catalog+json"/>
+         <rlink href="../../../nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_HIGH-baseline_profile.yaml"
+                media-type="application/oscal.catalog+yaml"/>
+      </resource>
+   </back-matter>
+</component-definition>
