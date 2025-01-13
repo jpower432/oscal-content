@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      uuid="faea2b64-86d5-4a09-8f9b-45e02ffed0a3">
+   <metadata>
+      <title>Example Agency1 System Security Plan</title>
+      <last-modified>2024-02-01T13:57:28.355446-04:00</last-modified>
+      <version>1.0.0</version>
+      <oscal-version>1.2.0</oscal-version>
+      <role id="owner">
+         <title>Agency1 System Owner</title>
+      </role>
+      <role id="system-engineer">
+         <title>Agency1 System Engineer</title>
+      </role>
+      <role id="develop">
+         <title>Agency1 Developer</title>
+      </role>
+      <party uuid="a4f2ad25-3e1d-4b98-802f-24731c8bc983" type="organization">
+         <remarks>
+            <p>Agency1</p>
+         </remarks>
+      </party>
+      <party uuid="53f3c42a-3ad2-4f11-b78e-2b0beabb50fb" type="person">
+         <remarks>
+            <p>John Smith</p>
+         </remarks>
+      </party>
+      <party uuid="39c2863a-4b6d-415a-9480-b84e9928da6b" type="person">
+         <name>Jane Doe</name>
+      </party>
+      <party uuid="84a775fd-def0-475c-869c-38800bfe9908" type="person">
+         <name>Richard Roe</name>
+      </party>
+      <responsible-party role-id="owner">
+         <party-uuid>53f3c42a-3ad2-4f11-b78e-2b0beabb50fb</party-uuid>
+      </responsible-party>
+      <responsible-party role-id="system-engineer">
+         <party-uuid>39c2863a-4b6d-415a-9480-b84e9928da6b</party-uuid>
+      </responsible-party>
+      <responsible-party role-id="developer">
+         <party-uuid>84a775fd-def0-475c-869c-38800bfe9908</party-uuid>
+      </responsible-party>
+   </metadata>
+   <import-profile href="#6b45e2a5-b238-4752-ba12-cfd6ef2a83df"/>
+   <system-characteristics>
+      <system-id identifier-type="http://ietf.org/rfc/rfc4122">8101e04d-8305-4e73-bb95-6b59f645b143</system-id>
+      <system-name>Example Agency1 System</system-name>
+      <description>
+         <p>The is an example system for Agency 1</p>
+      </description>
+      <system-information>
+         <information-type uuid="7d28ac6e-5970-4f4c-a508-5a3715f0f02b">
+            <title>System and Network Monitoring</title>
+            <description>
+               <p>This system maintains historical logging and auditing information for all client devices connected to this system.</p>
+            </description>
+            <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+               <information-type-id>C.3.5.8</information-type-id>
+            </categorization>
+            <confidentiality-impact>
+               <base>fips-199-moderate</base>
+            </confidentiality-impact>
+            <integrity-impact>
+               <base>fips-199-moderate</base>
+            </integrity-impact>
+            <availability-impact>
+               <base>fips-199-low</base>
+            </availability-impact>
+         </information-type>
+      </system-information>
+      <status state="operational"/>
+      <authorization-boundary>
+         <description>
+            <p>An attach diagram for the Agency1 System authorization boundary.</p>
+         </description>
+      </authorization-boundary>
+      <remarks>
+         <p>Example remarks.</p>
+      </remarks>
+   </system-characteristics>
+   <system-implementation>
+      <user uuid="00d323d3-dc3f-4d93-900f-f13430e094d3">
+         <title>Application Administrator</title>
+         <description>
+            <p>The developer of the application administers the Agency1 application and its infrastructure.</p>
+         </description>
+         <role-id>developer</role-id>
+      </user>
+      <component uuid="fb91d914-dca4-4ded-a22e-f9f3af14040d" type="this-system">
+         <title>This System</title>
+         <description>
+            <p>The Agency1 System</p>
+         </description>
+         <status state="operational"/>
+      </component>
+      <component uuid="5a3e1900-9247-47fb-951d-bcf3fb5ba567" type="software">
+         <title>Agency1 Application</title>
+         <description>
+            <p>An application managed by Agency1</p>
+         </description>
+         <status state="operational"/>
+      </component>
+      <component uuid="48d026df-b0de-4501-bdb3-c312df937dbe" type="software">
+         <title>Example IaaS Service 1</title>
+         <description>
+            <p>An example service provider by IaaS exposed to the IaaS customer</p>
+         </description>
+         <prop name="implementation-point" value="internal"/>
+         <status state="operational"/>
+      </component>
+   </system-implementation>
+   <control-implementation>
+      <description>
+         <p>A control implementation.</p>
+      </description>
+      <implemented-requirement uuid="076d9a7b-e017-4413-9fd0-9df4010f826d" control-id="control-2">
+         <by-component component-uuid="48d026df-b0de-4501-bdb3-c312df937dbe"
+                       uuid="9d46eb03-ebd1-4a41-b7fb-9fcaaabd7118">
+            <description>
+               <p>An implementation description.</p>
+            </description>
+            <implementation-status state="implemented"/>
+            <provided uuid="dd2130ea-43dd-465c-b8ef-915999c7b910" exportable="true">
+               <description>
+                  <p>A provided capability.</p>
+               </description>
+            </provided>
+            <responsibility uuid="022d76c0-4712-4d8f-9092-07ed6c594d89"
+                            provided-uuid="dd2130ea-43dd-465c-b8ef-915999c7b910"
+                            exportable="true">
+               <description>
+                  <p>A responsibilty.</p>
+               </description>
+            </responsibility>
+            <satisfied uuid="ab41d207-b522-4faa-a7c5-6ec6b8f416be"
+                       responsibility-uuid="0ad36c3d-2bd0-47d2-84ef-28e3de24104e"
+                       exportable="false">
+               <description>
+                  <p>A satisfied responsibilty.</p>
+               </description>
+            </satisfied>
+         </by-component>
+      </implemented-requirement>
+      <implemented-requirement uuid="fb883c71-3a63-4d23-bcc0-53cd3a1afbe7" control-id="control-1">
+         <by-component component-uuid="fb91d914-dca4-4ded-a22e-f9f3af14040d"
+                       uuid="0cff5c3c-5baf-4fa3-bddf-618e756ac63c">
+            <description>
+               <p>An implementation description.</p>
+            </description>
+            <implementation-status state="implemented"/>
+            <satisfied uuid="446460d9-9ea4-4fdf-a387-4a4eefa9fc3a"
+                       responsibility-uuid="85a69ddd-554c-4c60-bef9-2784bac674cd"
+                       exportable="false">
+               <description>
+                  <p>A satisfied responsibilty.</p>
+               </description>
+            </satisfied>
+         </by-component>
+      </implemented-requirement>
+   </control-implementation>
+   <back-matter>
+      <resource uuid="6b45e2a5-b238-4752-ba12-cfd6ef2a83df">
+         <description>
+            <p>NIST Special Publication 800-53 Revision 5: High Baseline Profile</p>
+         </description>
+         <rlink href="../../../nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_HIGH-baseline_profile.xml"
+                media-type="application/oscal.catalog+xml"/>
+         <rlink href="../../../nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_HIGH-baseline_profile.json"
+                media-type="application/oscal.catalog+json"/>
+         <rlink href="../../../nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_HIGH-baseline_profile.yaml"
+                media-type="application/oscal.catalog+yaml"/>
+      </resource>
+   </back-matter>
+</system-security-plan>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shared-responsibility xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                       uuid="5e139edd-86aa-4b65-8431-1192bd276658">
+   <metadata>
+      <title>Shared Responsibilty Model for CSP1</title>
+      <published>2023-05-19T14:46:54-04:00</published>
+      <last-modified>2024-03-01T13:57:28.355446-04:00</last-modified>
+      <version>1.1</version>
+      <oscal-version>1.2.0</oscal-version>
+      <role id="admin">
+         <title>Administrator</title>
+      </role>
+      <role id="customer">
+         <title>External Customer</title>
+      </role>
+      <role id="poc-for-customers">
+         <title>Internal POC for Customers</title>
+      </role>
+      <party uuid="53f3c42a-3ad2-4f11-b78e-2b0beabb50fb" type="person">
+         <remarks>
+            <p>Leveraged Authorization POC</p>
+         </remarks>
+      </party>
+      <party uuid="39c2863a-4b6d-415a-9480-b84e9928da6b" type="person">
+         <name>Jane Doe</name>
+      </party>
+      <party uuid="4166ddd2-cb9d-4786-ac3e-62788f953d1e" type="organization">
+         <name>ExamplePaaSSolutions Inc.</name>
+         <link href="https://www.examplepaassolutions.com" rel="website"/>
+      </party>
+      <responsible-party role-id="admin">
+         <party-uuid>39c2863a-4b6d-415a-9480-b84e9928da6b</party-uuid>
+      </responsible-party>
+      <responsible-party role-id="customer">
+         <party-uuid>4166ddd2-cb9d-4786-ac3e-62788f953d1e</party-uuid>
+      </responsible-party>
+      <responsible-party role-id="poc-for-customers">
+         <party-uuid>53f3c42a-3ad2-4f11-b78e-2b0beabb50fb</party-uuid>
+      </responsible-party>
+   </metadata>
+   <source-ssp ssp-uuid="784dd309-aade-42d6-bd57-73816c0b5d4f">
+      <title>CSP IaaS System Security Plan</title>
+      <published>2023-05-19T14:46:54-04:00</published>
+      <last-modified>2024-02-01T13:57:28.355446-04:00</last-modified>
+      <date-authorized>2024-04-16</date-authorized>
+      <party-uuid>53f3c42a-3ad2-4f11-b78e-2b0beabb50fb</party-uuid>
+      <referenced-profile href="#6b45e2a5-b238-4752-ba12-cfd6ef2a83df"/>
+      <component uuid="48d026df-b0de-4501-bdb3-c312df937dbe" type="software">
+         <title>Example IaaS Service 1</title>
+         <description>
+            <p>An example service provider by IaaS exposed to the IaaS customer</p>
+         </description>
+         <prop name="implementation-point" value="internal"/>
+         <status state="operational"/>
+      </component>
+   </source-ssp>
+   <control-implementation>
+      <description>
+         <p>A control implementation.</p>
+      </description>
+      <implemented-requirement uuid="fb883c71-3a63-4d23-bcc0-53cd3a1afbe7" control-id="control-2">
+         <by-component component-uuid="48d026df-b0de-4501-bdb3-c312df937dbe"
+                       uuid="0cff5c3c-5baf-4fa3-bddf-618e756ac63c">
+            <description>
+               <p>An implementation description.</p>
+            </description>
+            <implementation-status state="implemented"/>
+            <provided uuid="dd2130ea-43dd-465c-b8ef-915999c7b910" exportable="true">
+               <description>
+                  <p>A provided capability.</p>
+               </description>
+            </provided>
+            <responsibility uuid="85a69ddd-554c-4c60-bef9-2784bac674cd"
+                            provided-uuid="dd2130ea-43dd-465c-b8ef-915999c7b910"
+                            exportable="true">
+               <description>
+                  <p>A responsibilty.</p>
+               </description>
+            </responsibility>
+         </by-component>
+      </implemented-requirement>
+   </control-implementation>
+   <back-matter>
+      <resource uuid="6b45e2a5-b238-4752-ba12-cfd6ef2a83df">
+         <description>
+            <p>NIST Special Publication 800-53 Revision 5: High Baseline Profile</p>
+         </description>
+         <rlink href="../../../nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_HIGH-baseline_profile.xml"
+                media-type="application/oscal.catalog+xml"/>
+         <rlink href="../../../nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_HIGH-baseline_profile.json"
+                media-type="application/oscal.catalog+json"/>
+         <rlink href="../../../nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_HIGH-baseline_profile.yaml"
+                media-type="application/oscal.catalog+yaml"/>
+      </resource>
+   </back-matter>
+</shared-responsibility>

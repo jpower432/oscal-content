@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shared-responsibility xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                       uuid="1eaff84c-9948-493e-8ea3-07e9ab87b87a">
+   <metadata>
+      <title>Shared Responsibilty Model for Agency1 SSP</title>
+      <published>2023-05-19T14:46:54-04:00</published>
+      <last-modified>2024-03-01T13:57:28.355446-04:00</last-modified>
+      <version>1.1</version>
+      <oscal-version>1.2.0</oscal-version>
+      <role id="admin">
+         <title>Administrator</title>
+      </role>
+      <role id="poc-for-customers">
+         <title>Internal POC for Customers</title>
+      </role>
+      <party uuid="e040adb1-d464-4723-892d-a1abb133a246" type="person">
+         <remarks>
+            <p>Leveraged Authorization POC</p>
+         </remarks>
+      </party>
+      <party uuid="39c2863a-4b6d-415a-9480-b84e9928da6b" type="person">
+         <name>Jane Doe</name>
+      </party>
+      <responsible-party role-id="admin">
+         <party-uuid>39c2863a-4b6d-415a-9480-b84e9928da6b</party-uuid>
+      </responsible-party>
+      <responsible-party role-id="poc-for-customers">
+         <party-uuid>e040adb1-d464-4723-892d-a1abb133a246</party-uuid>
+      </responsible-party>
+   </metadata>
+   <source-ssp ssp-uuid="faea2b64-86d5-4a09-8f9b-45e02ffed0a3">
+      <title>Example Agency1 System Security Plan</title>
+      <published>2023-05-19T14:46:54-04:00</published>
+      <last-modified>2024-02-01T13:57:28.355446-04:00</last-modified>
+      <date-authorized>2024-04-16</date-authorized>
+      <party-uuid>e040adb1-d464-4723-892d-a1abb133a246</party-uuid>
+      <referenced-profile href="#6b45e2a5-b238-4752-ba12-cfd6ef2a83df"/>
+      <component uuid="fb91d914-dca4-4ded-a22e-f9f3af14040d" type="this-system">
+         <title>This System</title>
+         <description>
+            <p>The Agency1 System</p>
+         </description>
+         <status state="operational"/>
+      </component>
+      <component uuid="5a3e1900-9247-47fb-951d-bcf3fb5ba567" type="software">
+         <title>Agency1 Application</title>
+         <description>
+            <p>An application managed by Agency1</p>
+         </description>
+         <status state="operational"/>
+      </component>
+      <component uuid="48d026df-b0de-4501-bdb3-c312df937dbe" type="software">
+         <title>Example IaaS Service 1</title>
+         <description>
+            <p>An example service provider by IaaS exposed to the IaaS customer</p>
+         </description>
+         <prop name="implementation-point" value="internal"/>
+         <status state="operational"/>
+      </component>
+   </source-ssp>
+   <control-implementation>
+      <description>
+         <p>A control implementation.</p>
+      </description>
+      <implemented-requirement uuid="076d9a7b-e017-4413-9fd0-9df4010f826d" control-id="control-2">
+         <by-component component-uuid="48d026df-b0de-4501-bdb3-c312df937dbe"
+                       uuid="9d46eb03-ebd1-4a41-b7fb-9fcaaabd7118">
+            <description>
+               <p>An implementation description.</p>
+            </description>
+            <implementation-status state="implemented"/>
+            <provided uuid="dd2130ea-43dd-465c-b8ef-915999c7b910" exportable="true">
+               <description>
+                  <p>A provided capability.</p>
+               </description>
+            </provided>
+            <responsibility uuid="022d76c0-4712-4d8f-9092-07ed6c594d89"
+                            provided-uuid="dd2130ea-43dd-465c-b8ef-915999c7b910"
+                            exportable="true">
+               <description>
+                  <p>A responsibilty.</p>
+               </description>
+            </responsibility>
+         </by-component>
+      </implemented-requirement>
+   </control-implementation>
+   <back-matter>
+      <resource uuid="6b45e2a5-b238-4752-ba12-cfd6ef2a83df">
+         <description>
+            <p>NIST Special Publication 800-53 Revision 5: High Baseline Profile</p>
+         </description>
+         <rlink href="../../../nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_HIGH-baseline_profile.xml"
+                media-type="application/oscal.catalog+xml"/>
+         <rlink href="../../../nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_HIGH-baseline_profile.json"
+                media-type="application/oscal.catalog+json"/>
+         <rlink href="../../../nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_HIGH-baseline_profile.yaml"
+                media-type="application/oscal.catalog+yaml"/>
+      </resource>
+   </back-matter>
+</shared-responsibility>

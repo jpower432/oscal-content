@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                      uuid="21de34a9-004b-4518-a01b-77ffb82cf560">
+   <metadata>
+      <title>Example Agency1 System Security Plan with PaaS</title>
+      <last-modified>2024-02-01T13:57:28.355446-04:00</last-modified>
+      <version>1.0.0</version>
+      <oscal-version>1.2.0</oscal-version>
+      <role id="owner">
+         <title>Agency1 System Owner</title>
+      </role>
+      <role id="system-engineer">
+         <title>Agency1 System Engineer</title>
+      </role>
+      <role id="develop">
+         <title>Agency1 Developer</title>
+      </role>
+      <role id="service-provider">
+         <title>IaaS Provider POC</title>
+      </role>
+      <party uuid="a4f2ad25-3e1d-4b98-802f-24731c8bc983" type="organization">
+         <remarks>
+            <p>Agency1</p>
+         </remarks>
+      </party>
+      <party uuid="e040adb1-d464-4723-892d-a1abb133a246" type="person">
+         <remarks>
+            <p>Leveraged Authorization POC</p>
+         </remarks>
+      </party>
+      <party uuid="53f3c42a-3ad2-4f11-b78e-2b0beabb50fb" type="person">
+         <remarks>
+            <p>John Smith</p>
+         </remarks>
+      </party>
+      <party uuid="39c2863a-4b6d-415a-9480-b84e9928da6b" type="person">
+         <name>Jane Doe</name>
+      </party>
+      <party uuid="84a775fd-def0-475c-869c-38800bfe9908" type="person">
+         <name>Richard Roe</name>
+      </party>
+      <responsible-party role-id="owner">
+         <party-uuid>39c2863a-4b6d-415a-9480-b84e9928da6b</party-uuid>
+      </responsible-party>
+      <responsible-party role-id="service-provider">
+         <party-uuid>e040adb1-d464-4723-892d-a1abb133a246</party-uuid>
+      </responsible-party>
+      <responsible-party role-id="system-engineer">
+         <party-uuid>53f3c42a-3ad2-4f11-b78e-2b0beabb50fb</party-uuid>
+      </responsible-party>
+      <responsible-party role-id="developer">
+         <party-uuid>84a775fd-def0-475c-869c-38800bfe9908</party-uuid>
+      </responsible-party>
+   </metadata>
+   <import-profile href="#6b45e2a5-b238-4752-ba12-cfd6ef2a83df"/>
+   <system-characteristics>
+      <system-id identifier-type="http://ietf.org/rfc/rfc4122">8101e04d-8305-4e73-bb95-6b59f645b143</system-id>
+      <system-name>Example Agency1 System with PaaS</system-name>
+      <description>
+         <p>The is an example system for Agency1 leveraging another Agency1 system.</p>
+      </description>
+      <system-information>
+         <information-type uuid="7d28ac6e-5970-4f4c-a508-5a3715f0f02b">
+            <title>System and Network Monitoring</title>
+            <description>
+               <p>This system maintains historical logging and auditing information for all client devices connected to this system.</p>
+            </description>
+            <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+               <information-type-id>C.3.5.8</information-type-id>
+            </categorization>
+            <confidentiality-impact>
+               <base>fips-199-moderate</base>
+            </confidentiality-impact>
+            <integrity-impact>
+               <base>fips-199-moderate</base>
+            </integrity-impact>
+            <availability-impact>
+               <base>fips-199-low</base>
+            </availability-impact>
+         </information-type>
+      </system-information>
+      <status state="operational"/>
+      <authorization-boundary>
+         <description>
+            <p>An attach diagram for the Agency1 System authorization boundary.</p>
+         </description>
+      </authorization-boundary>
+      <remarks>
+         <p>Example remarks.</p>
+      </remarks>
+   </system-characteristics>
+   <system-implementation>
+      <leveraged-authorization uuid="ef08105c-fa40-4f06-924b-50cdd11feb94">
+         <title>Example Agency1 System Security Plan</title>
+         <link href="#b3a3079c-ace3-4aae-9acd-d52d418472f2" rel="oscal-srm-json"/>
+         <party-uuid>e040adb1-d464-4723-892d-a1abb133a246</party-uuid>
+         <date-authorized>2024-04-16</date-authorized>
+      </leveraged-authorization>
+      <user uuid="00d323d3-dc3f-4d93-900f-f13430e094d3">
+         <title>Application Administrator</title>
+         <description>
+            <p>The developer of the application administers the application and its infrastructure.</p>
+         </description>
+         <role-id>developer</role-id>
+      </user>
+      <component uuid="ce473558-a85e-4fbd-83c7-b2309fe61dc9" type="this-system">
+         <title>This System</title>
+         <description>
+            <p>The Agency1 System</p>
+         </description>
+         <status state="operational"/>
+      </component>
+      <component uuid="9fe372cd-1899-48d5-87fe-090227b08bf1" type="software">
+         <title>CMS</title>
+         <description>
+            <p>Content Management System</p>
+         </description>
+         <status state="operational"/>
+      </component>
+      <component uuid="394ae8a0-f6f2-482b-89a8-3c3b1dde90c6" type="software">
+         <title>Leveraged Agency1 Application</title>
+         <description>
+            <p>An application managed by Agency1</p>
+         </description>
+         <prop name="implementation-point" value="external"/>
+         <prop name="leveraged-authorization-uuid"
+               value="ef08105c-fa40-4f06-924b-50cdd11feb94"/>
+         <prop name="inherited-uuid" value="5a3e1900-9247-47fb-951d-bcf3fb5ba567"/>
+         <status state="operational"/>
+      </component>
+      <component uuid="7d434f14-57da-4336-a735-2491931e8c47" type="system">
+         <title>Leveraged System IaaS</title>
+         <description>
+            <p>Leveraged IaaS Component</p>
+         </description>
+         <prop name="implementation-point" value="external"/>
+         <prop name="leveraged-authorization-uuid"
+               value="ef08105c-fa40-4f06-924b-50cdd11feb94"/>
+         <prop name="inherited-uuid" value="fb91d914-dca4-4ded-a22e-f9f3af14040d"/>
+         <status state="operational"/>
+      </component>
+   </system-implementation>
+   <control-implementation>
+      <description>
+         <p>A control implementation.</p>
+      </description>
+      <implemented-requirement uuid="076d9a7b-e017-4413-9fd0-9df4010f826d" control-id="control-2">
+         <by-component component-uuid="ce473558-a85e-4fbd-83c7-b2309fe61dc9"
+                       uuid="3b1ab6df-e18e-4e35-a2e7-17c65340c952">
+            <description>
+               <p>An implementation description.</p>
+            </description>
+            <implementation-status state="implemented"/>
+            <inherited uuid="c2349d97-fafd-45cd-8aa5-1d0bfce03ef8"
+                       provided-uuid="dd2130ea-43dd-465c-b8ef-915999c7b910"
+                       exportable="false">
+               <description>
+                  <p>A description of inherited capabilty.</p>
+               </description>
+            </inherited>
+            <satisfied uuid="ab41d207-b522-4faa-a7c5-6ec6b8f416be"
+                       responsibility-uuid="0ad36c3d-2bd0-47d2-84ef-28e3de24104e"
+                       exportable="true">
+               <description>
+                  <p>A satisfied responsibilty.</p>
+               </description>
+            </satisfied>
+         </by-component>
+      </implemented-requirement>
+      <implemented-requirement uuid="64ba9663-b555-4dec-a48d-c2d4f0104fb7" control-id="control-4">
+         <by-component component-uuid="9fe372cd-1899-48d5-87fe-090227b08bf1"
+                       uuid="6f54514f-4826-477f-943e-14087932f425">
+            <description>
+               <p>An implementation description.</p>
+            </description>
+            <implementation-status state="implemented"/>
+            <responsibility uuid="ad9b31ac-cd1e-44db-9534-5f9adb9e6dcb" exportable="true">
+               <description>
+                  <p>A responsibility.</p>
+               </description>
+            </responsibility>
+         </by-component>
+      </implemented-requirement>
+   </control-implementation>
+   <back-matter>
+      <resource uuid="6b45e2a5-b238-4752-ba12-cfd6ef2a83df">
+         <description>
+            <p>NIST Special Publication 800-53 Revision 5: High Baseline Profile</p>
+         </description>
+         <rlink href="../../../nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_HIGH-baseline_profile.xml"
+                media-type="application/oscal.catalog+xml"/>
+         <rlink href="../../../nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_HIGH-baseline_profile.json"
+                media-type="application/oscal.catalog+json"/>
+         <rlink href="../../../nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_HIGH-baseline_profile.yaml"
+                media-type="application/oscal.catalog+yaml"/>
+      </resource>
+      <resource uuid="b3a3079c-ace3-4aae-9acd-d52d418472f2">
+         <description>
+            <p>Leveraged Agency1 SRM in JSON</p>
+         </description>
+         <rlink href="./example_agency1_srm.json"
+                media-type="application/oscal.catalog+json"/>
+      </resource>
+   </back-matter>
+</system-security-plan>
