@@ -21,7 +21,7 @@
       <control-implementation uuid="f4c278c2-c79c-4e58-83a8-2404a5b28b28"
                               source="#6b45e2a5-b238-4752-ba12-cfd6ef2a83df">
          <description>
-            <p>A control implememtation.</p>
+            <p>A control implementation.</p>
          </description>
          <implemented-requirement uuid="3b1ab6df-e18e-4e35-a2e7-17c65340c952" control-id="control-1">
             <description>
